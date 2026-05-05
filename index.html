@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="D-V2S: A framework that automatically generates simulatable driving scenarios from driving videos using VLM and LLM pipelines.">
+  <meta property="og:title" content="From Driving Videos to Simulatable Scenarios"/>
+  <meta property="og:description" content="D-V2S automatically generates simulatable driving scenarios from real-world driving videos using a two-stage VLM+LLM pipeline."/>
+  <meta property="og:url" content="https://alexandre-levy.github.io/DV2S"/>
+  <meta property="og:image" content="static/images/banner.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <meta name="twitter:title" content="From Driving Videos to Simulatable Scenarios">
+  <meta name="twitter:description" content="D-V2S automatically generates simulatable driving scenarios from real-world driving videos.">
+  <meta name="twitter:image" content="static/images/banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="autonomous driving, scenario generation, simulation, VLM, LLM, CARLA, driving video, D-V2S">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>D-V2S: From Driving Videos to Simulatable Scenarios</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+<!-- Hero / Title -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <!-- Venue badge -->
+          <p class="is-size-5" style="margin-bottom: 0.5rem;">
+            <span class="tag is-info is-medium" style="font-weight:600; letter-spacing:0.05em;">ITSC 2026</span>
+          </p>
+
+          <h1 class="title is-1 publication-title">From Driving Videos to Simulatable Scenarios</h1>
+
+          <p class="is-size-4" style="margin-top: -0.5rem; margin-bottom: 1rem; font-style: italic; color: #555;">
+            D-V2S: Driving Video to Scenario
+          </p>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/Alexandre-Levy" target="_blank">Alexandre Levy</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.cvc.uab.es/people/ernest-valveny/" target="_blank">Ernest Valveny Llobet</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.cvc.uab.es/people/antonio-lopez/" target="_blank">Antonio Manuel Lopez Pe&#241;a</a><sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="margin-top: 0.75rem;">
+            <span class="author-block"><sup>1</sup>Computer Vision Centre (CVC)&nbsp;&nbsp;</span>
+            <span class="author-block"><sup>2</sup>Universitat Aut&#242;noma de Barcelona (UAB)</span>
+          </div>
+
+          <div class="column has-text-centered" style="margin-top: 1rem;">
+            <div class="publication-links">
+
+              <!-- Paper PDF -->
+              <span class="link-block">
+                <a href="static/pdfs/DV2S.pdf" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- GitHub (code coming soon) -->
+              <span class="link-block">
+                <a href="https://github.com/Alexandre-Levy/DV2S" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code (coming soon)</span>
+                </a>
+              </span>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser figure -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <img src="static/images/teaser.png" alt="D-V2S pipeline overview" style="max-width:100%; border-radius:8px;"/>
+      <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+        D-V2S converts real-world driving videos into executable simulation scenarios
+        through a two-stage VLM + LLM pipeline.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Autonomous vehicles (AVs) face driving scenarios ranging from routine traffic to rare events.
+            To assess safety it is crucial to reproduce these scenarios in a controllable, repeatable, and
+            scalable manner, with simulation playing a key role. This paper introduces <strong>D-V2S</strong>, a novel
+            framework that automatically generates simulatable driving scenarios from driving videos.
+            D-V2S operates in two stages: a <strong>Driving Record Analyzer (DRA)</strong> uses a vision language
+            model (VLM) with our designed prompt to produce natural-language descriptions from input
+            videos, capturing road layouts and dynamic traffic interactions; subsequently, a
+            <strong>Scenario Generator (SG)</strong> uses a large language model (LLM) and our conditioning context
+            to translate these descriptions into executable scenarios. Using simulations, we show that
+            D-V2S generates scenarios where <strong>90% of the relevant semantic elements</strong> of the videos are
+            present. We also provide qualitative results demonstrating D-V2S&#39;s capability to transform
+            real-world driving videos into simulatable scenarios. Moreover, we provide both semantic and
+            human driven ablative analyses of D-V2S&#39;s modules. In particular, we show how the VLM
+            choice matters for DRA, and how our SG achieves a <strong>75% preference rate</strong> over other
+            state-of-the-art methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method Overview -->
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-three-quarters has-text-centered">
+          <h2 class="title is-3">Method Overview</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <center>
+            <img src="static/images/overview.png" alt="D-V2S pipeline" class="center-image blend-img-background" style="max-width:100%;"/>
+          </center>
+          <div class="level-set has-text-justified" style="margin-top: 1.5rem;">
+            <p>
+              D-V2S consists of two main components. The <strong>Driving Record Analyzer (DRA)</strong> takes a
+              driving video as input and leverages a Vision Language Model (VLM) with a carefully
+              designed prompt to extract rich natural-language descriptions of the scene. These
+              descriptions capture static road topology (lanes, intersections, road markings) as well
+              as dynamic elements (vehicle trajectories, pedestrian behaviour, traffic light states,
+              and inter-agent interactions).
+            </p>
+            <p>
+              The output of the DRA is then passed to the <strong>Scenario Generator (SG)</strong>, which uses a
+              Large Language Model (LLM) conditioned on a structured context to translate the
+              natural-language description into an executable scenario script. The resulting scenario
+              can be directly loaded into a traffic simulator, enabling controlled, repeatable
+              reproduction of real-world driving situations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Qualitative Results -->
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-three-quarters has-text-centered">
+          <h2 class="title is-3">Qualitative Results</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <p>
+        Below we show pairs of input driving videos alongside the scenarios generated by D-V2S
+        replayed in simulation. D-V2S faithfully reproduces road topology and dynamic traffic
+        interactions in a controllable simulation environment.
+      </p>
+    </div>
+
+    <!-- Placeholder result rows — replace src values with real images/videos -->
+    <div class="columns is-centered" style="margin-top: 1.5rem;">
+      <div class="column has-text-centered">
+        <p class="has-text-weight-semibold">Input Video</p>
+        <img src="static/images/result1_input.png" alt="Input video 1" style="border-radius:8px; border:1px solid #ccc; width:100%;"/>
+        <p style="margin-top:0.5rem; font-size:0.95rem;">Scene 1 — Urban intersection</p>
+      </div>
+      <div class="column has-text-centered">
+        <p class="has-text-weight-semibold">Generated Scenario</p>
+        <img src="static/images/result1_sim.png" alt="Generated scenario 1" style="border-radius:8px; border:1px solid #ccc; width:100%;"/>
+        <p style="margin-top:0.5rem; font-size:0.95rem;">Scene 1 — Simulated reproduction</p>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-top: 1rem;">
+      <div class="column has-text-centered">
+        <img src="static/images/result2_input.png" alt="Input video 2" style="border-radius:8px; border:1px solid #ccc; width:100%;"/>
+        <p style="margin-top:0.5rem; font-size:0.95rem;">Scene 2 — Highway merging</p>
+      </div>
+      <div class="column has-text-centered">
+        <img src="static/images/result2_sim.png" alt="Generated scenario 2" style="border-radius:8px; border:1px solid #ccc; width:100%;"/>
+        <p style="margin-top:0.5rem; font-size:0.95rem;">Scene 2 — Simulated reproduction</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{levy2026dv2s,
+  title     = {From Driving Videos to Simulatable Scenarios},
+  author    = {Levy, Alexandre and Valveny Llobet, Ernest and Lopez Pe{\~n}a, Antonio Manuel},
+  booktitle = {Proceedings of the IEEE International Conference on Intelligent Transportation Systems (ITSC)},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This work was carried out at the
+            <a href="https://www.cvc.uab.es/" target="_blank">Computer Vision Centre (CVC)</a>
+            and
+            <a href="https://www.uab.cat/" target="_blank">Universitat Aut&#242;noma de Barcelona (UAB)</a>.
+          </p>
+          <p style="font-size: 0.85rem; color: #888;">
+            Website template adapted from
+            <a href="https://nerfies.github.io/" target="_blank">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
