@@ -57,7 +57,7 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://github.com/Alexandre-Levy" target="_blank">Alexandre Levy</a><sup>1</sup>,
+              <a href="https://github.com/Alexandre-Levy" target="_blank">Alexandre Levy</a><sup>1,2</sup>,
             </span>
             <span class="author-block">
               <a href="https://www.cvc.uab.es/people/ernest-valveny/" target="_blank">Ernest Valveny Llobet</a><sup>1,2</sup>,
@@ -68,8 +68,8 @@
           </div>
 
           <div class="is-size-6 publication-authors" style="margin-top: 0.75rem;">
-            <span class="author-block"><sup>1</sup>Computer Vision Centre (CVC)&nbsp;&nbsp;</span>
-            <span class="author-block"><sup>2</sup>Universitat Aut&#242;noma de Barcelona (UAB)</span>
+            <span class="author-block"><sup>1</sup>Computer Vision Centrer (CVC)&nbsp;&nbsp;</span>
+            <span class="author-block"><sup>2</sup>Dept. Computer Science, Universitat&#242;noma de Barcelona (UAB)</span>
           </div>
 
           <div class="column has-text-centered" style="margin-top: 1rem;">
@@ -77,10 +77,10 @@
 
               <!-- Paper PDF -->
               <span class="link-block">
-                <a href="static/pdfs/DV2S.pdf" target="_blank"
+                <a href="None" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                  <span>Paper</span>
+                  <span>Paper (coming soon)</span>
                 </a>
               </span>
 
@@ -108,7 +108,7 @@
     <div class="hero-body has-text-centered">
       <img src="static/images/teaser.png" alt="D-V2S pipeline overview" style="max-width:100%; border-radius:8px;"/>
       <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
-        D-V2S converts real-world driving videos into executable simulation scenarios
+        D-V2S converts driving videos into executable simulation scenarios
         through a two-stage VLM + LLM pipeline.
       </h2>
     </div>
@@ -125,18 +125,18 @@
           <p>
             Autonomous vehicles (AVs) face driving scenarios ranging from routine traffic to rare events.
             To assess safety it is crucial to reproduce these scenarios in a controllable, repeatable, and
-            scalable manner, with simulation playing a key role. This paper introduces <strong>D-V2S</strong>, a novel
+            scalable manner, with simulation playing a key role. This paper introduces D-V2S, a novel
             framework that automatically generates simulatable driving scenarios from driving videos.
-            D-V2S operates in two stages: a <strong>Driving Record Analyzer (DRA)</strong> uses a vision language
+            D-V2S operates in two stages: a Driving Record Analyzer (DRA) uses a vision language
             model (VLM) with our designed prompt to produce natural-language descriptions from input
             videos, capturing road layouts and dynamic traffic interactions; subsequently, a
-            <strong>Scenario Generator (SG)</strong> uses a large language model (LLM) and our conditioning context
+            Scenario Generator (SG) uses a large language model (LLM) and our conditioning context
             to translate these descriptions into executable scenarios. Using simulations, we show that
-            D-V2S generates scenarios where <strong>90% of the relevant semantic elements</strong> of the videos are
+            D-V2S generates scenarios where 90% of the relevant semantic elements of the videos are
             present. We also provide qualitative results demonstrating D-V2S&#39;s capability to transform
             real-world driving videos into simulatable scenarios. Moreover, we provide both semantic and
             human driven ablative analyses of D-V2S&#39;s modules. In particular, we show how the VLM
-            choice matters for DRA, and how our SG achieves a <strong>75% preference rate</strong> over other
+            choice matters for DRA, and how our SG achieves a 75% preference rate over other
             state-of-the-art methods.
           </p>
         </div>
@@ -168,7 +168,7 @@
           </center>
           <div class="level-set has-text-justified" style="margin-top: 1.5rem;">
             <p>
-              D-V2S consists of two main components. The <strong>Driving Record Analyzer (DRA)</strong> takes a
+              D-V2S consists of two main components. The Driving Record Analyzer (DRA) takes a
               driving video as input and leverages a Vision Language Model (VLM) with a carefully
               designed prompt to extract rich natural-language descriptions of the scene. These
               descriptions capture static road topology (lanes, intersections, road markings) as well
@@ -176,7 +176,7 @@
               and inter-agent interactions).
             </p>
             <p>
-              The output of the DRA is then passed to the <strong>Scenario Generator (SG)</strong>, which uses a
+              The output of the DRA is then passed to the Scenario Generator (SG), which uses a
               Large Language Model (LLM) conditioned on a structured context to translate the
               natural-language description into an executable scenario script. The resulting scenario
               can be directly loaded into a traffic simulator, enabling controlled, repeatable
@@ -244,8 +244,8 @@
     <h2 class="title">BibTeX</h2>
     <pre><code>@inproceedings{levy2026dv2s,
   title     = {From Driving Videos to Simulatable Scenarios},
-  author    = {Levy, Alexandre and Valveny Llobet, Ernest and Lopez Pe{\~n}a, Antonio Manuel},
-  booktitle = {Proceedings of the IEEE International Conference on Intelligent Transportation Systems (ITSC)},
+  author    = {Levy, Alexandre and Valveny Llobet, Ernest and L{\'o}pez, Antonio M.},
+  booktitle = {Intelligent Transportation Systems Conference (ITSC)},
   year      = {2026}
 }</code></pre>
   </div>
